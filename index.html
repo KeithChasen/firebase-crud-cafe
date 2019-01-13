@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Cafe</h1>
+
+<div class="content">
+    <form id="add-cafe-form"></form>
+    <ul id="cafe-list"></ul>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-firestore.js"></script>
+<script src="firebase.js"></script>
+<script>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConf);
+
+    const db = firebase.firestore()
+    db.settings({ timestampsInSnapshots: true })
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>
