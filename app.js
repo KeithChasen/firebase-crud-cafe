@@ -29,7 +29,25 @@ renderCafe = doc => {
 }
 
 //getting data
-db.collection('cafes').get().then(response => {
+db.collection('cafes')
+    // .where('city', '==', 'Kiev') /** filter **/
+    // .where('city', '>', 'P') /** filter **/
+
+    // .orderBy('name')
+    // .orderBy('city')
+
+    /**
+     * double rule
+     * requires index:
+     *
+     * (it will automatically generate error and link to firebase console
+     * where you can create an index)
+     *
+     * **/
+    .where('city', '==', 'Kiev')
+    .orderBy('name')
+
+    .get().then(response => {
     response.docs.forEach(doc => {
         renderCafe(doc)
     })
